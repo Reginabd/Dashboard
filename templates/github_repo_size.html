@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{# Navbar Link Block #}
+{% block home %}
+{% endblock home %}
+
+{% block github_all_repos %}
+{% endblock github_all_repos %}
+
+{% block github_repo_size %}
+active
+{% endblock github_repo_size %}
+
+{% block github_repo_languages %}
+{% endblock github_repo_languages %}
+
+{# Content Blocks #}
+{% block content %}
+<div>
+    <embed type="image/svg+xml" src="{{ chart|safe }}" />
+</div>
+{% endblock content %}

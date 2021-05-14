@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{# Navbar Link Block #}
+{% block home %}
+{% endblock home %}
+
+{% block github_all_repos %}
+{% endblock github_all_repos %}
+
+{% block github_repo_size %}
+{% endblock github_repo_size %}
+
+{% block github_repo_language %}
+active
+{% endblock github_repo_language %}
+
+{# Content Block #}
+{% block content %}
+{% if found %}
+<form action="" method="get">
+    <input type="text" name="username" placeholder="username" value="{{username}}">
+    <input type="text" name="github_repo_name" placeholder="github repository name" value="{{repo_name}}">
+    <input type="submit" value="Submit">
+</form>
+<div>
+    <embed type="image/svg+xml" src="{{ chart|safe }}" />
+</div>
+{% else %}
+<form action="" method="get">
+    <input type="text" name="username" placeholder="username" value="">
+    <input type="text" name="github_repo_name" placeholder="github repository name" value="">
+    <input type="submit" value="Submit">
+</form>
+<p>No such github repository.</p>
+{% endif %}
+{% endblock content %}

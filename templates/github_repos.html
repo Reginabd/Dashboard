@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{# Navbar Link Block #}
+{% block home %}
+{% endblock home %}
+
+{% block github_all_repos %}
+active
+{% endblock github_all_repos %}
+
+{% block github_repo_size %}
+{% endblock github_repo_size %}
+
+{% block github_repo_language %}
+{% endblock github_repo_language %}
+
+{# Content Block #}
+{% block content %}
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Repo Size</th>
+            <th scope="col">Programming Language</th>
+            <th score="col">Link</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for repo in repo_data%}
+    <tr>
+        <th>{{repo.name}}</th>
+        <td>{{repo.size}}</td>
+        <td></td>
+        <td>{{repo.language}}</td>
+        <td>
+        <form action="https://github.com/regiabd/{{repo.name | lower}}" target="_blank">
+            <input type="submit" value="Go to Repo"/>
+        </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

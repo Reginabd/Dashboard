@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{{title | title}}</title>
+    <title>My GitHub contributions</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>{{title|title}}</h1>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-8">
+            <h1>My github repos</h1>
+            <p><a href="/">Back to the homepage</a></p>
+            
+            {% for repo in github_repos %}
+            <ul class="navbar">
+                <li class="nav {% block home %}{% endblock home %}">
+                        <a class="link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav {% block github_repos %}{% endblock github_repos %}">
+                        <a class="link" href="{% url 'github_repos' %}">All Github Repos</a>
+                    </li>
+                    <li class="nav {% block github_repo_size %}{% endblock github_repo_size %}">
+                        <a class="link" href="{% url 'github_repo_size' %}">Github Repo Size</a>
+                    </li>
+                    <li class="nav {% block nav_repo_language %}{% endblock nav_repo_language %}">
+                        <a class="link" href="{% url 'github_repo_languages' %}">Github Repo Languages</a>
+                    </li>
+            </ul>
+            {% endfor %}                  
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+
+</html>
